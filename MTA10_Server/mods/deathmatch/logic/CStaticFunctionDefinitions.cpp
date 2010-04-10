@@ -3072,10 +3072,10 @@ bool CStaticFunctionDefinitions::SetPedDoingGangDriveby ( CElement * pElement, b
 }
 
 
-bool CStaticFunctionDefinitions::SetPedAnimation ( CElement * pElement, const char * szBlockName, const char * szAnimName, int iTime, bool bLoop, bool bUpdatePosition, bool bInterruptable )
+bool CStaticFunctionDefinitions::SetPedAnimation ( CElement * pElement, const char * szBlockName, const char * szAnimName, int iTime, bool bLoop, bool bUpdatePosition, bool bInterruptable, bool bFreezeLastFrame )
 {
     assert ( pElement );
-    RUN_CHILDREN SetPedAnimation ( *iter, szBlockName, szAnimName, iTime, bLoop, bUpdatePosition, bInterruptable );
+    RUN_CHILDREN SetPedAnimation ( *iter, szBlockName, szAnimName, iTime, bLoop, bUpdatePosition, bInterruptable, bFreezeLastFrame );
 
     if ( IS_PED ( pElement ) )
     {
@@ -3100,6 +3100,7 @@ bool CStaticFunctionDefinitions::SetPedAnimation ( CElement * pElement, const ch
                 BitStream.pBitStream->WriteBit ( bLoop );
                 BitStream.pBitStream->WriteBit ( bUpdatePosition );
                 BitStream.pBitStream->WriteBit ( bInterruptable );
+				BitStream.pBitStream->WriteBit ( bFreezeLastFrame );
             }
             else
             {
