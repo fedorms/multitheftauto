@@ -4704,7 +4704,7 @@ void CClientPed::RunNamedAnimation ( CAnimBlock * pBlock, const char * szAnimNam
             if ( bUpdatePosition ) flags |= 0x40; flags |= 0x80; // 0x40 enables position updating on Y-coord, 0x80 on X. (Maccer)
             if ( !bFreezeLastFrame ) flags |= 0x08; // flag determines whether to freeze player when anim ends. Really annoying (Maccer)
 
-			CTask * pTask = g_pGame->GetTasks ()->CreateTaskSimpleRunNamedAnim ( szAnimName, pBlock->GetName (), flags, 4.0f, iTime, !bInterruptable, bRunInSequence, bOffsetPed, bHoldLastFrame );
+            CTask * pTask = g_pGame->GetTasks ()->CreateTaskSimpleRunNamedAnim ( szAnimName, pBlock->GetName (), flags, 4.0f, iTime, !bInterruptable, bRunInSequence, bOffsetPed, bHoldLastFrame );
             if ( pTask )
             {
                 pTask->SetAsPedTask ( m_pPlayerPed, TASK_PRIORITY_PRIMARY );

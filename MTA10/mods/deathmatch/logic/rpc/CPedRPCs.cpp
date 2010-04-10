@@ -334,7 +334,7 @@ void CPedRPCs::SetPedAnimation ( NetBitStreamInterface& bitStream )
                          bitStream.ReadBit ( bLoop ) &&
                          bitStream.ReadBit ( bUpdatePosition ) &&
                          bitStream.ReadBit ( bInterruptable ) &&
-						 bitStream.ReadBit ( bFreezeLastFrame ) )
+                         bitStream.ReadBit ( bFreezeLastFrame ) )
                     {
                         szAnimName [ ucAnimSize ] = 0;
 
