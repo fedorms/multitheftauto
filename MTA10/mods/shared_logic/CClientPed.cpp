@@ -10,6 +10,7 @@
 *               Jax <>
 *               Stanislav Bobrov <lil_toady@hotmail.com>
 *               Alberto Alonso <rydencillo@gmail.com>
+*               Fedor Sinev <fedorsinev@gmail.com>
 *
 *****************************************************************************/
 
