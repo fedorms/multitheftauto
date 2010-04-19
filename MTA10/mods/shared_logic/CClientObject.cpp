@@ -330,8 +330,8 @@ void CClientObject::StreamIn ( bool bInstantly )
 
 
 void CClientObject::StreamOut ( void )
-{
-    // Destroy the object.
+{	
+	// Destroy the object.
     Destroy ();
 
     // Cancel anything we might've requested.

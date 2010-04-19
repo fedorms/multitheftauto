@@ -136,9 +136,14 @@ int CLuaFunctionDefs::EngineLoadTXD ( lua_State* luaVM )
         CResource* pResource = pLuaMain->GetResource ();
         if ( pResource )
         {
-            // Grab the filename
+            bool bFilteringEnabled = true;
+
+			// Grab the filename
             SString strFile = ( lua_istype ( luaVM, 1, LUA_TSTRING ) ? lua_tostring ( luaVM, 1 ) : "" );
             
+            if ( lua_type ( luaVM, 2 ) == LUA_TBOOLEAN )
+                bFilteringEnabled = ( lua_toboolean ( luaVM, 2 ) ) ? true:false;
+
             SString strPath;
             // Is this a legal filepath?
             if ( CResourceManager::ParseResourcePathInput( strFile, pResource, strPath ) )
@@ -150,7 +155,7 @@ int CLuaFunctionDefs::EngineLoadTXD ( lua_State* luaVM )
                 CClientTXD* pTXD = new CClientTXD ( m_pManager, INVALID_ELEMENT_ID );
 
                 // Try to load the TXD file
-                if ( pTXD->LoadTXD ( strPath ) )
+                if ( pTXD->LoadTXD ( strPath, bFilteringEnabled ) )
                 {
                     // Success loading the file. Set parent to TXD root
                     pTXD->SetParent ( pRoot );
