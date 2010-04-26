@@ -142,7 +142,7 @@ public:
     static bool                         RemovePedClothes                    ( CClientEntity& Entity, unsigned char ucType );
     static bool                         SetPedControlState                  ( CClientEntity& Entity, const char* szControl, bool bState );
     static bool                         SetPedDoingGangDriveby              ( CClientEntity& Entity, bool bGangDriveby );
-    static bool                         SetPedLookAt                        ( CClientEntity& Entity, CVector & vecPosition, int iTime, CClientEntity * pTarget );
+    static bool                         SetPedLookAt                        ( CClientEntity& Entity, CVector & vecPosition, int iTime, int iBlend, CClientEntity * pTarget );
     static bool                         SetPedHeadless                      ( CClientEntity& Entity, bool bHeadless );
     static bool                         SetPedFrozen                        ( CClientEntity& Entity, bool bFrozen );
     static bool                         SetPedCameraRotation                ( CClientEntity& Entity, float fRotation );
