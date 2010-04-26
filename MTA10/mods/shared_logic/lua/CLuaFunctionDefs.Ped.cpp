@@ -1279,10 +1279,14 @@ int CLuaFunctionDefs::SetPedLookAt ( lua_State* luaVM )
         if ( iArgument5 == LUA_TNUMBER || iArgument5 == LUA_TSTRING )
         {
             iTime = static_cast < int > ( lua_tonumber ( luaVM, 5 ) );
-            iBlend = static_cast < int > ( lua_tonumber ( luaVM, 6 ) );
-
-            if ( lua_type ( luaVM, 7 ) == LUA_TLIGHTUSERDATA )
-                pTarget = lua_toelement ( luaVM, 7 );
+            if ( lua_type ( luaVM, 6 ) == LUA_TLIGHTUSERDATA )
+                pTarget = lua_toelement ( luaVM, 6 );
+            else if ( iArgument6 == LUA_TNUMBER || iArgument6 == LUA_TSTRING )
+            {
+                iBlend = static_cast < int > ( lua_tonumber ( luaVM, 6 ) );
+                if ( lua_type ( luaVM, 7 ) == LUA_TLIGHTUSERDATA )
+                    pTarget = lua_toelement ( luaVM, 7 );
+            }
         }
 
         if ( pEntity )
